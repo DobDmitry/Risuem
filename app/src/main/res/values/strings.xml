@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Единственная строка ресурсов: имя приложения на экране телефона.
+         Все надписи внутри живут рядом с озвучкой, в ui/Words.kt. -->
+    <string name="app_name">РИСУЕМ</string>
+</resources>

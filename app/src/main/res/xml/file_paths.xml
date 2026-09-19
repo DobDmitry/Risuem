@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Наружу отдаём только готовые картинки из личной папки приложения. -->
+    <cache-path name="share" path="share/" />
+    <files-path name="works" path="works/" />
+</paths>

@@ -1,0 +1,20 @@
+# Сборка
+build/
+.gradle/
+local.properties
+*.apk
+*.ap_
+*.dex
+*.class
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# ВАЖНО: Gradle Wrapper коммитится целиком.
+# Никаких правил вида "*.jar" здесь быть не должно —
+# без gradle/wrapper/gradle-wrapper.jar сборка на сервере упадёт.
