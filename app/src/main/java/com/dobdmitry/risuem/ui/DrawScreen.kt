@@ -34,6 +34,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
@@ -77,7 +78,12 @@ private const val WIDTH_ERASER = 90f
  * Рисование идёт прямо в растр: на каждое движение пальца дорисовывается
  * только новый кусочек линии. Наклейки живут отдельным слоем сверху —
  * их можно двигать, растягивать двумя пальцами и выбрасывать в корзину.
+ *
+ * OptIn нужен ради `historical`: система отдаёт промежуточные точки касания
+ * между кадрами, и только с ними быстрый росчерк остаётся гладким. API
+ * помечено экспериментальным, но без него линия рвётся на резких движениях.
  */
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun DrawScreen(model: RisuemViewModel) {
     val audio = LocalAudio.current
