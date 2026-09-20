@@ -17,7 +17,13 @@ class AppAudio(val sfx: Sfx, val voice: Voice) {
     var enabled: Boolean by mutableStateOf(true)
         private set
 
-    fun setEnabled(value: Boolean) {
+    /**
+     * Включить или выключить звук.
+     *
+     * Имя нарочно не setEnabled: у свойства `enabled` уже есть сеттер,
+     * и для виртуальной машины это была бы одна и та же подпись метода.
+     */
+    fun switchSound(value: Boolean) {
         enabled = value
         if (!value) voice.stop()
     }

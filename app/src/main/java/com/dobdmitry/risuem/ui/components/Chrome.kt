@@ -64,7 +64,7 @@ fun SoundToggle(modifier: Modifier = Modifier, size: Dp = 56.dp) {
         size = size,
     ) {
         val next = !audio.enabled
-        audio.setEnabled(next)
+        audio.switchSound(next)
         if (next) {
             audio.play(Sound.BLUP)
             audio.say(Words.ZVUK.speech)

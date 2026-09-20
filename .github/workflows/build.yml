@@ -57,6 +57,14 @@ jobs:
           name: test-report-${{ github.run_number }}
           path: core/build/reports/tests/test
 
+      # Самым последним шагом — ещё раз только ошибки компиляции.
+      # В хвосте лога их не перебивают ни стектрейс Gradle, ни выгрузка артефактов.
+      - name: Ошибки компиляции, если сборка упала
+        if: failure()
+        run: |
+          echo "── ошибки компиляции ──"
+          grep -E "^e: " build.log | head -80 || echo "в логе нет строк с ошибками компиляции"
+
       - name: Выложить APK в Releases
         uses: softprops/action-gh-release@v2
         with:
